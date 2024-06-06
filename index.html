@@ -5,16 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Troca Imagem</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {background-color: pink;} 
+        div {text-align: center}
+    </style>
 </head>
 <body>
-    
-    <form>
-        <img id="pinkiepie" src="pinkiepie1.jpg" alt="pinkie">
+    <div>
+        <button id="trocaImagem">Troque a Imagem</button>
+        <br>
+            <img id="pinkie" src="img/pinkiepie1.png" alt="Pinkie Pie.">
+        </div>
 
-        <button id="troca">Troca Imagem</button>
-    </form>
-    
-    <script src="script.js"></script>
+    <script src="script.js">
+        document.addEventListener('DOMContentLoaded', function() {
+            let button = document.getElementById('trocaImagem');
+            let image = document.querySelector('img');
+            let imageIndex = 0;
+            let images =  [
+                'img/pinkiepie1.png',
+                'img/princesajujuba2.png',
+                'img/uniqua3.png',
+                ];
+
+        button.addEventListener('click', function() {
+        image.src = images[imageIndex];
+        imageIndex = (imageIndex + 1) % images.length;
+      });
+      });
+    </script>
 </body>
 </html>
